@@ -9,12 +9,12 @@ a = {1, 2, 3, 4}
 b = {3, 4, 5, 6}
 
 # 합집합
-                    # {1, 2, 3, 4, 5, 6}
-          
+print(a.union(b))                    # {1, 2, 3, 4, 5, 6}
+print(a | b)          
 
 # 교집합
-                    # {3, 4}
-
+print(a.intersection(b))                    # {3, 4}
+print(a & b)
 
 # 차집합
 print(a.difference(b))                    # {1, 2}
@@ -29,8 +29,8 @@ print(a ^ b)
 x = {1, 2}
 y = {1, 2, 3, 4}
 
-print(x.issubset)            # 부분집합
-          # 상위집합
+print(x.issubset(y))            # 부분집합
+print(y.issuperset(x))          # 상위집합
 
 
 # ===========================================================
@@ -40,14 +40,22 @@ print(x.issubset)            # 부분집합
 s = {100, 10, 30, 5, 5, 5}
 
 # 집합 언패킹
+print(*s)
+
+a, *b, c = s
+print(a, b, c)   # 확장 언패킹 가능
 
 # set -> list, tuple
+print(list(s))
+print(tuple(s))
 
 
 # list, tuple -> set
 a = [1, 2, 2, 3, 3, 3]
 b = (3, 3, 4, 4, 4, 5)
-
+print(set(a))
+print(set(b))
+# ex6 확인
 
 
 # =========================================================
@@ -60,14 +68,13 @@ c_class = {"이영희", "최지훈", "박민수"}
 
 # 1️⃣ 두 수업 다 듣는 학생 출력하기
 
-print(python_class)                                        # ✅ {'이영희', '박민수'}
+print(python_class & c_class)                                        # ✅ {'이영희', '박민수'}
 
 
 # 2️⃣ Python만 듣는 학생 출력하기
-
-                                        # ✅ {'김철수'}
+print(python_class - c_class)                                        # ✅ {'김철수'}
 
 
 # 3️⃣ 둘 중 하나라도 듣는 학생 출력하기
 
-                                        # ✅ {'최지훈', '김철수', '이영희', '박민수'}
+print(python_class | c_class)                                        # ✅ {'최지훈', '김철수', '이영희', '박민수'}
