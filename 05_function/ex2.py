@@ -168,4 +168,5 @@ def countdown(n):
         countdown(n-1)
 
 
+
 countdown(5)                        # ✅ 5 -> 4 -> 3 -> 2 -> 1 -> 로켓 발사
