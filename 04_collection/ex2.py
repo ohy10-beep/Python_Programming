@@ -36,7 +36,7 @@ langs.sort(reverse=True)            # 내림차순 정렬
 print(langs)
 
 langs.clear()                        # 모든 item 삭제
-print(langs)
+print(langs)                         # 빈 리스트
 
 # 리스트 복사
 ori = [1, 2, 3]
@@ -50,10 +50,10 @@ print(ori, result)
 ori = [[1, 2], [3, 4]]
 
 print(id(ori))
-result = ori.copy()
+result = ori.copy()         # 아이디 다름
 print(id(result))
 
-print(id(ori[0]), id(result[0]))
+print(id(ori[0]), id(result[0]))        #원소(= 리스트) 아이디 같음
 
 result[0].append(10)
 print(ori, result)
@@ -62,7 +62,7 @@ print(ori, result)
 import copy
 
 result2 = copy.deepcopy(ori)
-print(id(ori[1]), id(result2[0]))
+print(id(ori[1]), id(result2[0]))       #원소(= 리스트) 아이디 다름
 
 result2[0].append(100)
 print(ori, result2)

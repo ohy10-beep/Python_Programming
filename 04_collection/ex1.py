@@ -102,8 +102,8 @@ a.insert(2, [70, 80])   #list 그대로 index에
 print(a)
 
 # 리스트 반복하기
-print(a*2)
+print(a*2)      # 리스트 하나 안에 원소 반복
 
 # 멤버십 연산자
-print(1 in a)
-print(100 in a)
+print(1 in a)       #True
+print(100 in a)     #False

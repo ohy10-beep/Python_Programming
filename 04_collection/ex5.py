@@ -114,7 +114,7 @@ d = {"kor": 90, "mat": 85, "eng": 80}
 print(len(d))
 # print(sum(d))
 print(sum(d.values()))
-print(min(d), min(d.values()))
+print(min(d), min(d.values()))          # eng 80
 print(max(d), max(d.values()))
 
 print(sorted(d))                    # sorted는 list로 리턴
@@ -124,14 +124,14 @@ print(dict(sorted(d.items())))      # key를 기준으로 정렬
 def key(x):
     return x[1]
 
-print(dict(sorted(d.items(), key=key)))
+print(dict(sorted(d.items(), key=key)))     # value 기준 정렬
 print(dict(sorted(d.items(), key=key, reverse=True)))
 
 # 정렬 기준 설정하기
 # lambda: 이름 없는(익명) 한 줄짜리 함수를 만듦
 # lambda 매개변수1, 매개변수2, ... : 표현식
 
-print(dict(d.items, key=lambda x: x[1]))
+print(dict(d.items(), key=lambda x: x[1]))
 
 # 딕셔너리 합치기
 d2 = {"sci": 95, "prog": 100}
@@ -145,4 +145,4 @@ print("kor" in d)
 print("art" in d)
 
 print(90 in d.values())
-print(100 in d.values)
+print(100 in d.values())

@@ -40,13 +40,13 @@
 #  - 예외가 발생하지 않으면 except 블록은 실행되지 않는다.
 # ===========================================================
 
-try:
-    num = int(input("숫자 => "))        # 예외 발생 가능한 코드
-    print(num)
-except:
-    print("숫자를 입력하세요")
+# try:
+#     num = int(input("숫자 => "))        # 예외 발생 가능한 코드
+#     print(10 /num)
+# except:
+#     print("숫자를 입력하세요")
 
-print("프로그램 계속 진행")
+# print("프로그램 계속 진행")
 
 
 # ===========================================================
@@ -66,17 +66,18 @@ print("프로그램 계속 진행")
 #  - 에러 메시지 확인하기: except 예외종류 as 변수명
 # ===========================================================
 
-try:
-    num = int(input("숫자 => "))        # 예외 발생 가능한 코드
-    result = 10 / num
-except ValueError as e:
-    print("숫자를 입력하세요: ", e)
-except ZeroDivisionError as e:
-    print("0으로 나눌 수 없습니다: ", e)
-else:
-    print("결과 :", result)    
-finally:
-    print("완료")
+# try:
+#     num = int(input("숫자 => "))        # 예외 발생 가능한 코드
+#     result = 10 / num
+# except ValueError as e:
+#     print("숫자르르 입력하세요: ", e)
+# except ZeroDivisionError as e:
+#     print("0으로 나눌 수 없습니다: ", e)
+# else:
+#     print("결과 :", result)
+# finally:
+#     print("완료")
+
 # ===========================================================
 #  4. 예외 직접 발생시키기
 #  - 형식) raise 예외종류("에러 메시지")
@@ -96,7 +97,7 @@ def check_age(age):
 try:
     check_age(-10)
 except ValueError as e:
-    print(e)
+    print(e)    
 
 # =========================================================
 #  🔥 실습 문제
@@ -108,9 +109,28 @@ except ValueError as e:
 #  - 그 외 연산자의 경우: "지원하지 않는 연산자입니다." 예외 발생
 
 def calc(a, op, b):
-    num1 = float(a)
-    num2 = float(b)
-    except ValueError
+    try:
+        a, b = int(a), int(b)
+
+        if op == '+':
+            return a + b
+        elif op == '-':
+            return a - b
+        elif op == '*':
+            return a * b
+        elif op == '/':
+            if b == 0:
+                raise ZeroDivisionError("0으로 나눌 수 없습니다.")
+            return a / b
+        else:
+            raise ValueError(f"지원하지 않는 연산자({op})입니다.")
+    except ZeroDivisionError as e:
+        return e
+    except TypeError as e:
+        return e
+    except ValueError:
+        raise ValueError("숫자를 입력하세요.")
+
 # 2️⃣ 계산기 함수 호출 시 예외 처리하기
 # [실행 결과]
 #  - 15
@@ -118,5 +138,8 @@ def calc(a, op, b):
 #  - 에러: 지원하지 않는 연산자(%)입니다.
 #  - 에러: 숫자를 입력하세요.
 
-for data in [("10", "+", "5"), ("10", "/", "0"), ("10", "%", "3"), ("ten", "+", "3")]:
-    pass
+try:
+    for data in [("10", "+", "5"), ("10", "/", "0"), ("10", "%", "3"), ("ten", "+", "3")]:
+        print(calc(*data))
+except (ValueError, ZeroDivisionError) as e:
+    print("에러: e")
